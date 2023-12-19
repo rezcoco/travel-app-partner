@@ -10,7 +10,7 @@ const cookiePrefix = useSecureCookies ? "__Secure-" : ""
 
 export const authConfig: AuthOptions = {
   pages: {
-    signIn: "/login",
+    signIn: process.env.NEXTAUTH_URL + "/login",
   },
   adapter: PrismaAdapter(prisma),
   session: {
