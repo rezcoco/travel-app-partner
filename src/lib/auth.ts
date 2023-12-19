@@ -97,7 +97,7 @@ export const authConfig: AuthOptions = {
         httpOnly: true,
         sameSite: "lax",
         path: "/",
-        domain: process.env.NEXTAUTH_URL,
+        domain: "." + process.env.NEXTAUTH_URL,
         secure: useSecureCookies
       },
     },
