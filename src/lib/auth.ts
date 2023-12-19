@@ -9,7 +9,7 @@ const VERCEL_DEPLOYMENT = !!process.env.VERCEL_URL;
 
 export const authConfig: AuthOptions = {
   pages: {
-    signIn: "/login",
+    signIn: "https://goout.my.id/login",
   },
   adapter: PrismaAdapter(prisma),
   session: {
