@@ -1,12 +1,11 @@
 "use client"
 
-import { getServerSession } from "next-auth"
-import { signIn } from "next-auth/react"
+import { signIn, useSession } from "next-auth/react"
 import React from "react"
 
-const Protected = async () => {
-  const auth = await getServerSession()
-  if (!auth)
+const Protected = () => {
+  const { data, status } = useSession()
+  if (status === "unauthenticated")
     return (
       <>
         <h2>Please Login to access this page</h2>
@@ -14,7 +13,7 @@ const Protected = async () => {
       </>
     )
 
-  return <h2>Hello {auth.user.name}</h2>
+  return <h2>Hello {data?.user.name}</h2>
 }
 
 export default Protected
