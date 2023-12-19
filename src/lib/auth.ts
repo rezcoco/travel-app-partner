@@ -81,6 +81,9 @@ export const authConfig: AuthOptions = {
       }
 
       return session
+    },
+    async redirect({ url }) {
+      return Promise.resolve(url)
     }
   },
   cookies: {
@@ -97,5 +100,5 @@ export const authConfig: AuthOptions = {
         secure: VERCEL_DEPLOYMENT,
       },
     },
-  }
+  },
 } satisfies AuthOptions;
