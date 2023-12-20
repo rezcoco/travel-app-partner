@@ -7,6 +7,7 @@ import bcrypt from "bcrypt"
 
 const useSecureCookies = process.env.NEXTAUTH_URL?.startsWith("https://")
 const cookiePrefix = useSecureCookies ? "__Secure-" : ""
+const hostname = new URL(process.env.NEXTAUTH_URL!).hostname
 
 export const authConfig: AuthOptions = {
   pages: {
@@ -97,7 +98,7 @@ export const authConfig: AuthOptions = {
         httpOnly: true,
         sameSite: "lax",
         path: "/",
-        domain: "." + process.env.NEXTAUTH_URL,
+        domain: "." + hostname,
         secure: useSecureCookies
       },
     },
